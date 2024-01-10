@@ -1,0 +1,40 @@
+﻿@model CrudApp.Models.NumberRequest
+
+@{
+    ViewData["Title"] = "Add Numbers";
+}
+
+<h1 class="mt-5">Add Numbers</h1>
+
+<form id="addNumbersForm" class="mt-4">
+    <div class="mb-3">
+        <label for="num1" class="form-label">Enter Num1:</label>
+        <input type="text" class="form-control" id="num1" name="num1" placeholder="Enter Num1" required>
+    </div>
+    <div class="mb-3">
+        <label for="num2" class="form-label">Enter Num2:</label>
+        <input type="text" class="form-control" id="num2" name="num2" placeholder="Enter Num2" required>
+    </div>
+    <button type="button" class="btn btn-primary" onclick="handleAdd()">Add</button>
+</form>
+
+<div id="resultBox" class="mt-4 alert alert-info" style="display: none;">
+    <!-- This is where the result will be displayed -->
+</div>
+
+@section scripts {
+    <script>
+        function handleAdd() {
+            var num1 = document.getElementById('num1').value;
+            var num2 = document.getElementById('num2').value;
+
+            var sum = parseInt(num1) + parseInt(num2);
+
+            // Display the result in a styled box
+            var resultBox = document.getElementById('resultBox');
+            resultBox.innerText = 'Sum: ' + sum;
+            resultBox.style.display = 'block';
+        }
+    </script>
+}
+
